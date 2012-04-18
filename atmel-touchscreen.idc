@@ -1,4 +1,4 @@
-# Copyright (C) 2009 The Android Open Source Project
+# Copyright (C) 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,18 +13,17 @@
 # limitations under the License.
 
 #
-# AndroidBoard.mk is a legacy mechanism to deal with a few
-# edge-cases that can't be managed otherwise. No new rules
-# should be added to this file.
+# Emulator keyboard configuration file #1.
 #
 
-LOCAL_PATH := $(call my-dir)
+touch.deviceType = touchScreen
+touch.orientationAware = 1
 
-# Least specific includes go first, so that they can get
-# overridden further down
-include $(CLEAR_VARS)
+keyboard.layout = incrediblec-keypad
+keyboard.characterMap = Virtual
+keyboard.orientationAware = 1
+keyboard.builtIn = 0
 
-ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
+cursor.mode = navigation
+cursor.orientationAware = 1
 
-# include the non-open-source counterpart to this file
--include vendor/htc/inc/AndroidBoardVendor.mk

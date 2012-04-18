@@ -23,6 +23,9 @@
 $(call inherit-product, device/common/gps/gps_us.mk)
 
 PRODUCT_COPY_FILES += \
+    device/htc/inc/postrecoveryboot.sh:sbin/postrecoveryboot.sh
+
+PRODUCT_COPY_FILES += \
     device/htc/inc/init.inc.rc:root/init.inc.rc
 
 $(call inherit-product-if-exists, vendor/htc/inc/inc-vendor.mk)
@@ -75,15 +78,19 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/inc/modules/bcm4329.ko:system/lib/modules/bcm4329.ko
 
+PRODUCT_COPY_FILES += \
+    device/htc/inc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
+    device/htc/inc/curcial-oj.idc:system/usr/idc/curcial-oj.idc
+
 PRODUCT_PACKAGES += \
     librs_jni \
     sensors.inc \
     lights.inc \
     gralloc.qsd8k \
     copybit.qsd8k \
-    gps.inc \
     libOmxCore \
     libOmxVidEnc
+    #gps.inc \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -98,9 +105,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 $(call inherit-product-if-exists, vendor/htc/inc/inc-vendor.mk)
-
-# stuff common to all HTC phones
-$(call inherit-product, device/htc/common/common.mk)
 
 $(call inherit-product, build/target/product/full_base.mk)
 

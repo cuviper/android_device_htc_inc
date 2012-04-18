@@ -71,6 +71,11 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 1240
 BOARD_EGL_CFG := device/htc/inc/egl.cfg
 
 BOARD_USES_QCOM_LIBS := true
+# probably needs these, but broken
+#BOARD_USES_QCOM_HARDWARE := true
+#BOARD_GLOBAL_CFLAGS += -DQCOM_HARDWARE=1
+#TARGET_GRALLOC_USES_ASHMEM := true
+#TARGET_USES_GENLOCK := true
 
 BOARD_USE_FROYO_LIBCAMERA := true
 
@@ -103,3 +108,5 @@ BOARD_CACHE_FILESYSTEM := auto
 
 # Make sure vold formats the proper sdcard partition
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+
+BOARD_USE_LEGACY_TOUCHSCREEN := true
