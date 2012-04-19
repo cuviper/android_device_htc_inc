@@ -1,11 +1,14 @@
 on fs
 # eMMC related 
     export PHONE_STORAGE /mnt/emmc
+    export EXTERNAL_STORAGE /mnt/sdcard
 
     # Create mountpoints
     mount rootfs rootfs / remount
     mkdir /mnt/emmc 0000 system system
     symlink /mnt/emmc /emmc
+    mkdir /mnt/sdcard 0000 system system
+    symlink /mnt/sdcard /sdcard
 
     mount rootfs rootfs / ro remount
 
